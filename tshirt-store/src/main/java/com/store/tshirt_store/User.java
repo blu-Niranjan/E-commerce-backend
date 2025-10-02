@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "store_users") // We use a custom table name to avoid conflicts with the keyword "user"
+@Table(name = "store_users") 
 public class User {
 
     @Id
@@ -57,14 +57,13 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    // Inside your User.java file
-// ...after the private String password; field...
+    
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private ShoppingCart shoppingCart;
 
-// ... after the public void setPassword(...) method ...
+
 
     public ShoppingCart getShoppingCart() {
         return shoppingCart;
