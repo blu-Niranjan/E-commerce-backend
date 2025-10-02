@@ -12,7 +12,7 @@ public class OrderItem {
 
     @ManyToOne
     @JoinColumn(name = "order_id")
-    @JsonIgnore // Prevents infinite loops when sending JSON
+    @JsonIgnore 
     private CustomerOrder customerOrder;
 
     private Long productId;
