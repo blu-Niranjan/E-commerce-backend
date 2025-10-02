@@ -27,14 +27,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                // --- NEW: Add the CORS configuration to the security chain ---
+                
                 .cors(withDefaults())
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/products/**").permitAll()
                         .requestMatchers("/api/cart/**").permitAll()
-                        .requestMatchers("/api/orders/**").permitAll() // <-- Temporarily make orders public for testing
+                        .requestMatchers("/api/orders/**").permitAll() 
                         .anyRequest().authenticated()
                 )
                 .httpBasic(withDefaults());
@@ -42,7 +42,6 @@ public class SecurityConfig {
         return http.build();
     }
 
-    // --- NEW: Detailed CORS Configuration Bean ---
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
