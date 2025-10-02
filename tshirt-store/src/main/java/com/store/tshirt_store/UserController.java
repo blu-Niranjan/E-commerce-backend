@@ -2,7 +2,7 @@ package com.store.tshirt_store;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder; // <-- NEW IMPORT
+import org.springframework.security.crypto.password.PasswordEncoder; 
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -13,14 +13,14 @@ import java.util.Optional;
 public class UserController {
 
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder; // <-- INJECT THE HASHER
+    private final PasswordEncoder passwordEncoder; 
 
     public UserController(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder; // <-- INITIALIZE IT
+        this.passwordEncoder = passwordEncoder; 
     }
 
-    // Endpoint for user registration
+    
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody User newUser) {
         if (userRepository.findByUsername(newUser.getUsername()).isPresent()) {
