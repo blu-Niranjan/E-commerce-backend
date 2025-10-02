@@ -13,7 +13,7 @@ public class Product {
     private String name;
     private double price;
     private String imageUrl;
-    private String category; // <-- NEW FIELD
+    private String category; 
 
     public Product() {}
 
@@ -25,7 +25,7 @@ public class Product {
         this.category = category;
     }
 
-    // OLD CONSTRUCTOR (still useful)
+    // OLD CONSTRUCTOR 
     public Product(Long id, String name, double price, String imageUrl) {
         this.id = id;
         this.name = name;
@@ -38,5 +38,5 @@ public class Product {
     public String getName() { return name; }
     public double getPrice() { return price; }
     public String getImageUrl() { return imageUrl; }
-    public String getCategory() { return category; } // <-- NEW GETTER
+    public String getCategory() { return category; }
 }
