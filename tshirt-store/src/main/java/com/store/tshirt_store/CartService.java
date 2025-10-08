@@ -34,16 +34,16 @@ public class CartService {
 
     @Transactional
     public void addProductToCart(String username, Long productId) {
-        // --- Checkpoint 1 ---
+        //  Checkpoint 1
         System.out.println("--- ACTION: addProductToCart started for user: " + username + ", product ID: " + productId);
 
         try {
             ShoppingCart cart = getOrCreateCartForUser(username);
-            // --- Checkpoint 2 ---
+            //  Checkpoint 2
             System.out.println("--- INFO: Found or created cart with ID: " + cart.getId());
 
             Product product = productRepository.findById(productId).orElseThrow(() -> new RuntimeException("Product not found"));
-            // --- Checkpoint 3 ---
+            //  Checkpoint 3
             System.out.println("--- INFO: Found product: " + product.getName());
 
             Optional<CartItem> existingItem = cart.getItems().stream()
@@ -51,11 +51,11 @@ public class CartService {
                     .findFirst();
 
             if (existingItem.isPresent()) {
-                // --- Checkpoint 4a ---
+                //  Checkpoint 4a
                 System.out.println("--- INFO: Item is already in cart. Incrementing quantity.");
                 existingItem.get().incrementQuantity();
             } else {
-                // --- Checkpoint 4b ---
+                //  Checkpoint 4b
                 System.out.println("--- INFO: Item not in cart. Creating new CartItem.");
                 CartItem newItem = new CartItem();
                 newItem.setCart(cart);
@@ -65,11 +65,11 @@ public class CartService {
             }
 
             cartRepository.save(cart);
-            // --- Checkpoint 5 ---
+            //  Checkpoint 5
             System.out.println("--- SUCCESS: Cart saved. Cart now has " + cart.getItems().size() + " unique item type(s).");
 
         } catch (Exception e) {
-            // --- Checkpoint 6 (Error) ---
+            // Checkpoint 6 (Error)
             System.err.println("--- ERROR: An exception occurred in addProductToCart: " + e.getMessage());
         }
     }

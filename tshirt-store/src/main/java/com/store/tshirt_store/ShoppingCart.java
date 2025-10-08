@@ -23,7 +23,6 @@ public class ShoppingCart {
     @JsonManagedReference
     private List<CartItem> items = new ArrayList<>();
 
-    // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public User getUser() { return user; }

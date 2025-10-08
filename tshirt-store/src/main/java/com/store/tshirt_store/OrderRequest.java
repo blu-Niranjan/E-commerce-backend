@@ -4,7 +4,6 @@ public class OrderRequest {
     private Address shippingAddress;
     private String paymentMethod;
 
-    // Getters and Setters
     public Address getShippingAddress() {
         return shippingAddress;
     }

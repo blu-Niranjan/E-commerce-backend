@@ -17,7 +17,6 @@ public class Product {
 
     public Product() {}
 
-    // NEW CONSTRUCTOR
     public Product(String name, double price, String imageUrl, String category) {
         this.name = name;
         this.price = price;
@@ -25,7 +24,6 @@ public class Product {
         this.category = category;
     }
 
-    // OLD CONSTRUCTOR 
     public Product(Long id, String name, double price, String imageUrl) {
         this.id = id;
         this.name = name;
@@ -33,7 +31,6 @@ public class Product {
         this.imageUrl = imageUrl;
     }
 
-    // Getters
     public Long getId() { return id; }
     public String getName() { return name; }
     public double getPrice() { return price; }

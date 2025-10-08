@@ -27,7 +27,6 @@ public class CustomerOrder {
     @OneToMany(mappedBy = "customerOrder", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();
 
-    // Getters and Setters below
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public LocalDateTime getOrderDate() { return orderDate; }

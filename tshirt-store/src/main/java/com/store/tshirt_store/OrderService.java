@@ -21,7 +21,6 @@ public class OrderService {
 
     @Transactional
     public CustomerOrder placeOrder(String username, OrderRequest orderRequest) {
-        // 1. Find the user and their cart
         User user = userRepository.findByUsername(username)
                 .orElseThrow(() -> new RuntimeException("User not found"));
         ShoppingCart cart = cartRepository.findByUser(user)
@@ -76,7 +75,6 @@ public class OrderService {
             order.setStatus("Canceled");
             return orderRepository.save(order);
         } else {
-            // If the order is already shipped or delivered, we can't cancel it.
             throw new RuntimeException("Order cannot be canceled as it has already been processed.");
         }
     }

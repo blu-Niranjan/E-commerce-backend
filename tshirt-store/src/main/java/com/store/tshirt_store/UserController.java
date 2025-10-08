@@ -27,7 +27,7 @@ public class UserController {
             return new ResponseEntity<>("Username is already taken!", HttpStatus.BAD_REQUEST);
         }
 
-        // --- HASH THE PASSWORD BEFORE SAVING! ---
+        //  HASH THE PASSWORD BEFORE SAVING!
         newUser.setPassword(passwordEncoder.encode(newUser.getPassword()));
         userRepository.save(newUser);
 
@@ -42,7 +42,7 @@ public class UserController {
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
 
-            // --- SECURELY COMPARE THE HASHED PASSWORD ---
+            //  SECURELY COMPARE THE HASHED PASSWORD
             if (passwordEncoder.matches(loginDetails.getPassword(), user.getPassword())) {
                 // Passwords match
                 return new ResponseEntity<>(user, HttpStatus.OK);

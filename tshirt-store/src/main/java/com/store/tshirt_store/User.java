@@ -15,7 +15,7 @@ public class User {
     private String email;
     private String password;
 
-    // Constructors
+
     public User() {
     }
 
@@ -25,7 +25,6 @@ public class User {
         this.password = password;
     }
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }

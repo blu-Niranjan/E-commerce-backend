@@ -20,7 +20,6 @@ public class OrderItem {
     private int quantity;
     private Double priceAtPurchase;
 
-    // Getters and Setters below
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public CustomerOrder getCustomerOrder() { return customerOrder; }

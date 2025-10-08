@@ -9,8 +9,6 @@ import java.util.List;
 public class ApiController {
 
     private final ProductRepository productRepository;
-
-    // Tell Spring to give us the librarian when it creates the controller
     public ApiController(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
@@ -25,8 +23,6 @@ public class ApiController {
     
     @GetMapping("/api/products/{id}")
     public Product getProductById(@PathVariable Long id) {
-        // Ask the librarian to find a product by its ID.
-        // If it's not found, it will return null (nothing).
         return productRepository.findById(id).orElse(null);
     }
     
